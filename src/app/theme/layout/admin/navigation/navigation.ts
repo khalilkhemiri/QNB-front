@@ -143,6 +143,14 @@ export const ADMIN_ITEMS: NavigationItem[] = [
         type: 'item',
         url: '/admin-dashboard',
         icon: 'feather icon-home'
+      },
+      {
+        id: 'tables',
+        title: 'Tables',
+        type: 'item',
+        url: '/tables/bootstrap',
+        classes: 'nav-item',
+        icon: 'feather icon-server'
       }
     ]
   }

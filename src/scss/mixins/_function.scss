@@ -1,7 +1,9 @@
+@use "sass:color";
+
 @function color-yiq($color) {
-  $r: red($color);
-  $g: green($color);
-  $b: blue($color);
+  $r: color.channel($color, 'red', $space: rgb);
+  $g: color.channel($color, 'green', $space: rgb);
+  $b: color.channel($color, 'blue', $space: rgb);
   $yiq: calc((($r * 299) + ($g * 587) + ($b * 114)) / 1000);
   @if ($yiq >= $yiq-contrasted-threshold) {
     @return $yiq-dark-color;
