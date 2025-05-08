@@ -13,9 +13,12 @@ export class AuthService {
 
   constructor(private http: HttpClient,private router: Router) { }
 
-  signup(user: any): Observable<any> {
-    return this.http.post(this.apiUrl, user, { responseType: 'text' });
+  
+  signupWithImage(formData: FormData) {
+    return this.http.post('http://localhost:8080/api/auth/signup', formData, { responseType: 'text' });
   }
+  
+  
   login(username: string, password: string) {
     return this.http.post(this.apiUrl1 + '/signin', { username, password },
       { responseType: 'json' }

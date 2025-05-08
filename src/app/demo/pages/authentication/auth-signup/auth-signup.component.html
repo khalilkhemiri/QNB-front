@@ -22,6 +22,8 @@
           <div class="input-group mb-4">
             <input formControlName="password" type="password" class="form-control" placeholder="Password" />
           </div>
+          <input type="file" (change)="onFileSelected($event)" accept="image/*" />
+
           <div class="form-group text-start mb-4">
             <div class="checkbox checkbox-fill d-inline">
               <input type="checkbox" name="checkbox-fill-1" id="checkbox-fill-1" checked />

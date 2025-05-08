@@ -15,7 +15,7 @@ const routes: Routes = [
       },
       {
         path: 'signup',
-        loadComponent: () => import('./demo/pages/authentication/auth-signin/auth-signin.component').then(m => m.default)
+        loadComponent: () => import('./demo/pages/authentication/auth-signup/auth-signup.component').then(m => m.default)
       }
     ]
   },
@@ -52,6 +52,10 @@ const routes: Routes = [
       {
         path: 'sample-page',
         loadComponent: () => import('./demo/extra/sample-page/sample-page.component')
+      },
+      {
+        path: 'tache',
+        loadComponent: () => import('./demo/pages/tache-stagiaire/tache-stagiaire.component').then(m => m.TacheStagiaireComponent)
       }
     ]
   },

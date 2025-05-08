@@ -34,6 +34,7 @@
             "styles": [
              "node_modules/bootstrap/dist/css/bootstrap.min.css",
              "node_modules/@schedule-x/theme-default/dist/index.css",
+             
              "src/styles.scss"
 
             ],

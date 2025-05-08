@@ -1,0 +1,37 @@
+<p-table [value]="taches" [paginator]="true" [rows]="5">
+    <ng-template pTemplate="header">
+      <tr>
+        <th>Titre</th>
+        <th>Description</th>
+        <th>Date Limite</th>
+        <th>Action</th>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-tache>
+      <tr>
+        <td>{{ tache.titre }}</td>
+        <td>{{ tache.description | slice:0:30 }}...</td>
+        <td>{{ tache.dateLimite | date }}</td>
+        <td>
+          <button (click)="showDetail(tache)" class="p-button p-button-info p-button-sm">
+            Détails / Rendu
+          </button>
+        </td>
+      </tr>
+    </ng-template>
+  </p-table>
+  
+  <p-dialog header="Détails de la tâche" [(visible)]="displayDetail" [modal]="true" [style]="{width: '500px'}">
+    <div *ngIf="selectedTache">
+      <h4>{{ selectedTache.titre }}</h4>
+      <p>{{ selectedTache.description }}</p>
+      <p><strong>Date limite :</strong> {{ selectedTache.dateLimite | date }}</p>
+  
+      <hr />
+      <h5>Soumettre un rendu</h5>
+      <textarea [(ngModel)]="renduText" rows="3" placeholder="Commentaire ou lien"></textarea>
+      <input type="file" (change)="onFileSelected($event)" />
+      <button class="p-button p-button-success p-mt-2" (click)="submitRendu()">Envoyer</button>
+    </div>
+  </p-dialog>
+  

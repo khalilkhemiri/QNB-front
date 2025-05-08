@@ -1,7 +1,5 @@
 <main class="main">
   <div class="content">
-    <sx-calendar [calendarApp]="calendarApp">
-      
-    </sx-calendar>
+    <sx-calendar *ngIf="calendarApp" [calendarApp]="calendarApp"></sx-calendar>
   </div>
 </main>

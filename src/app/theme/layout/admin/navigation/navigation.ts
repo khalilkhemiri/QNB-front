@@ -151,6 +151,30 @@ export const ADMIN_ITEMS: NavigationItem[] = [
         url: '/tables/bootstrap',
         classes: 'nav-item',
         icon: 'feather icon-server'
+      },
+      {
+        id: 'forms-element',
+        title: 'Form Elements',
+        type: 'item',
+        url: '/forms/basic',
+        classes: 'nav-item',
+        icon: 'feather icon-file-text'
+      },
+      {
+        id: 'apexChart',
+        title: 'ApexChart',
+        type: 'item',
+        url: 'apexchart',
+        classes: 'nav-item',
+        icon: 'feather icon-pie-chart'
+      },
+      {
+        id: 'tache',
+        title: 'tache',
+        type: 'item',
+        url: 'tache',
+        classes: 'nav-item',
+        icon: 'feather icon-pie-chart'
       }
     ]
   }
