@@ -16,7 +16,7 @@ export class TacheService {
   getTachesDuStagiaire() {
     return this.http.get<any[]>(`${this.apiUrl}/stagiaire`);
   }
-  envoyerRendu(tacheId: number, formData: FormData) {
+  envoyerRendu(tacheId: string, formData: FormData) {
     return this.http.post(`${this.apiUrl}/${tacheId}/rendu`, formData);
   }
 }

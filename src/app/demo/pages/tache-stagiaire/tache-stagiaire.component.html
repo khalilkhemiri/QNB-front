@@ -1,37 +1,51 @@
-<p-table [value]="taches" [paginator]="true" [rows]="5">
-    <ng-template pTemplate="header">
-      <tr>
-        <th>Titre</th>
-        <th>Description</th>
-        <th>Date Limite</th>
-        <th>Action</th>
-      </tr>
-    </ng-template>
-    <ng-template pTemplate="body" let-tache>
-      <tr>
-        <td>{{ tache.titre }}</td>
-        <td>{{ tache.description | slice:0:30 }}...</td>
-        <td>{{ tache.dateLimite | date }}</td>
-        <td>
-          <button (click)="showDetail(tache)" class="p-button p-button-info p-button-sm">
-            Détails / Rendu
-          </button>
-        </td>
-      </tr>
-    </ng-template>
-  </p-table>
-  
-  <p-dialog header="Détails de la tâche" [(visible)]="displayDetail" [modal]="true" [style]="{width: '500px'}">
-    <div *ngIf="selectedTache">
-      <h4>{{ selectedTache.titre }}</h4>
-      <p>{{ selectedTache.description }}</p>
-      <p><strong>Date limite :</strong> {{ selectedTache.dateLimite | date }}</p>
-  
-      <hr />
-      <h5>Soumettre un rendu</h5>
-      <textarea [(ngModel)]="renduText" rows="3" placeholder="Commentaire ou lien"></textarea>
-      <input type="file" (change)="onFileSelected($event)" />
-      <button class="p-button p-button-success p-mt-2" (click)="submitRendu()">Envoyer</button>
+<div class="taches-container">
+  <div class="header">
+    <h1>Mes Tâches</h1>
+    <div class="filters">
+      <mat-form-field>
+        <mat-label>Filtrer par statut</mat-label>
+        <mat-select [(ngModel)]="selectedFilter" (selectionChange)="applyFilter()">
+          <mat-option value="all">Toutes</mat-option>
+          <mat-option value="pending">En cours</mat-option>
+          <mat-option value="completed">Terminées</mat-option>
+        </mat-select>
+      </mat-form-field>
     </div>
-  </p-dialog>
-  
+  </div>
+
+  <div class="taches-grid">
+    <mat-card *ngFor="let tache of filteredTaches" class="tache-card" [class.urgent]="isUrgent(tache)">
+      <mat-card-header>
+        <mat-card-title>{{ tache.titre }}</mat-card-title>
+        <mat-card-subtitle>
+          <span class="date">Date de début: {{ tache.dateDebut | date:'dd/MM/yyyy HH:mm' }}</span>
+          <span class="date">Date limite: {{ tache.dateFin | date:'dd/MM/yyyy HH:mm' }}</span>
+          <span class="status" [ngClass]="getStatusClass(tache)">
+            {{ getStatusText(tache) }}
+          </span>
+        </mat-card-subtitle>
+      </mat-card-header>
+
+      <mat-card-content>
+        <p class="description">{{ tache.description }}</p>
+        <div class="task-info">
+          <span class="created-at">Créée le: {{ tache.createdAt | date:'dd/MM/yyyy' }}</span>
+          <span *ngIf="tache.rapportRendu" class="rendu-info">
+            Rendu soumis le: {{ tache.rapportRendu.dateSoumission | date:'dd/MM/yyyy HH:mm' }}
+          </span>
+        </div>
+      </mat-card-content>
+
+      <mat-card-actions>
+        <button mat-raised-button color="primary" (click)="showDetail(tache)">
+          <mat-icon>visibility</mat-icon>
+          Détails
+        </button>
+        <button mat-raised-button color="accent" (click)="showDetail(tache)" *ngIf="tache.statut !== StatutTache.TERMINEE">
+          <mat-icon>upload</mat-icon>
+          Rendu
+        </button>
+      </mat-card-actions>
+    </mat-card>
+  </div>
+</div>

@@ -9,7 +9,6 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatButtonModule } from '@angular/material/button';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'; // si nécessaire
-import { CalendarModule } from 'primeng/calendar';
 import { FormsModule } from '@angular/forms';
 import { NgxMatTimepickerModule } from 'ngx-mat-timepicker';
 import { TacheService } from 'src/app/demo/service/tache/tache.service';
@@ -28,7 +27,6 @@ import { AuthService } from 'src/app/demo/service/auth/auth.service';
     MatDatepickerModule,
     MatNativeDateModule,
     MatButtonModule,
-    CalendarModule,
     FormsModule,
     NgxMatTimepickerModule
   ],

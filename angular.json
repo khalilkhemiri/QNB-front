@@ -32,12 +32,12 @@
               "src/fake-data"
             ],
             "styles": [
-             "node_modules/bootstrap/dist/css/bootstrap.min.css",
-             "node_modules/@schedule-x/theme-default/dist/index.css",
-             
-             "src/styles.scss"
-
-            ],
+  "node_modules/bootstrap/dist/css/bootstrap.min.css",
+  "node_modules/@schedule-x/theme-default/dist/index.css",
+  "node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
+  "src/styles.scss"
+]
+,
             "scripts": [
               "node_modules/apexcharts/dist/apexcharts.min.js"
             ]

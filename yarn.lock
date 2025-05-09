@@ -316,7 +316,7 @@
   dependencies:
     tslib "^2.3.0"
 
-"@angular/router@^19.0.0", "@angular/router@19.0.5":
+"@angular/router@19.0.5":
   version "19.0.5"
   resolved "https://registry.npmjs.org/@angular/router/-/router-19.0.5.tgz"
   integrity sha512-6tNubVVj/rRyTg+OXjQxACfufvCLHAwDQtv9wqt6q/3OYSnysHTik3ho3FaFPwu7fXJ+6p9Rjzkh2VY9QMk4bw==
@@ -1681,6 +1681,13 @@
   integrity sha512-9241aGnIv7y0IGzaq2vkBMe8/0jGnnmEEUeFmAoTWsaj8q/BW2PVekL8nHVJcy69bBww6rwEy3A1tc6yPE0sJA==
   dependencies:
     "@preact/signals-core" "^1.7.0"
+
+"@primeng/themes@^19.1.2":
+  version "19.1.2"
+  resolved "https://registry.npmjs.org/@primeng/themes/-/themes-19.1.2.tgz"
+  integrity sha512-6q6jYks+S9+oqJUtsBKSAt9PdO2eUIkYyg4qGZAF2Dsp7YZ5nt4W/S5JUjxEDEjrtwUe+uDLeQr7PxNJErN4Gg==
+  dependencies:
+    "@primeuix/styled" "^0.3.2"
 
 "@primeuix/styled@^0.3.2":
   version "0.3.2"
@@ -5718,15 +5725,6 @@ primeicons@^7.0.0:
   resolved "https://registry.npmjs.org/primeicons/-/primeicons-7.0.0.tgz"
   integrity sha512-jK3Et9UzwzTsd6tzl2RmwrVY/b8raJ3QZLzoDACj+oTJ0oX7L9Hy+XnVwgo4QVKlKpnP/Ur13SXV/pVh4LzaDw==
 
-primeng@^19.1.2:
-  version "19.1.2"
-  resolved "https://registry.npmjs.org/primeng/-/primeng-19.1.2.tgz"
-  integrity sha512-iu4lDrStBPCyYn+iSfofp/Hsv/dHVlnlsOhqFZlYTQB1o+MlVXa4PanLgHdoBr1thy3ozRkNDZHsICkUecWu0A==
-  dependencies:
-    "@primeuix/styled" "^0.3.2"
-    "@primeuix/utils" "^0.3.2"
-    tslib "^2.3.0"
-
 proc-log@^5.0.0:
   version "5.0.0"
   resolved "https://registry.npmjs.org/proc-log/-/proc-log-5.0.0.tgz"
@@ -6061,7 +6059,7 @@ run-parallel@^1.1.9:
   dependencies:
     queue-microtask "^1.2.2"
 
-"rxjs@^6.0.0 || ^7.8.1", "rxjs@^6.5.3 || ^7.4.0", "rxjs@^6.5.5 || ^7.4.0", rxjs@>=7.0.0, rxjs@~7.8.1, rxjs@7.8.1:
+"rxjs@^6.5.3 || ^7.4.0", "rxjs@^6.5.5 || ^7.4.0", rxjs@>=7.0.0, rxjs@~7.8.1, rxjs@7.8.1:
   version "7.8.1"
   resolved "https://registry.npmjs.org/rxjs/-/rxjs-7.8.1.tgz"
   integrity sha512-AA3TVj+0A2iuIoQkWEK/tqFjBq2j+6PO6Y0zJcvzLAFhEFIO3HL0vls9hWLncZbAAbK0mar7oZ4V079I/qPMxg==
