@@ -4,6 +4,17 @@ import { Observable, tap } from 'rxjs';
 import { Router } from '@angular/router';
 import jwt_decode from 'jwt-decode';
 
+export interface Stagiaire {
+  id: string;
+  username: string;
+  email: string;
+  phone: string | null;
+  image: string | null;
+  role: string;
+  active: boolean;
+  createdAt: string;
+  tuteurId: string;
+}
 @Injectable({
   providedIn: 'root'
 })
@@ -45,11 +56,12 @@ export class AuthService {
     if (!token) return null;
   
     const decoded: any = this.parseJwt(token);
-    console.log(decoded); // ← ici tu as les rôles, username, etc.
-    return decoded?.roles || null; // ← ici tu peux retourner le rôle
+    console.log(decoded); 
+    return decoded?.roles || null; 
+    
   }
   
-  private parseJwt(token: string): any {
+  parseJwt(token: string): any {
     try {
       return JSON.parse(atob(token.split('.')[1]));
     } catch (e) {
@@ -71,5 +83,26 @@ export class AuthService {
   }
   getStagiairesByTuteur(tuteurId: string): Observable<any[]> {
     return this.http.get<any[]>(`${this.apiUrl1}/stagiaires-by-tuteur/${tuteurId}`);
+  }
+
+  getStagiaireById(id: string): Observable<any> {
+    return this.http.get<any>(`http://localhost:8080/api/auth/stagiaire/${id}`);
+  }
+
+  // Méthode pour obtenir l'ID de l'utilisateur connecté
+  getCurrentUserId(): string {
+    const token = this.getToken();
+    if (!token) return '';
+  
+    const decoded: any = this.parseJwt(token);
+    return decoded?.id || '';
+  }
+
+  getAllStagiaires(): Observable<any[]> {
+    return this.http.get<any[]>(`${this.apiUrl1}/stagiaires`);
+  }
+
+  getAllTuteurs(): Observable<any[]> {
+    return this.http.get<any[]>(`${this.apiUrl1}/tuteurs`);
   }
 }

@@ -26,7 +26,7 @@ const routes: Routes = [
     children: [
       {
         path: '',
-        redirectTo: 'dashboard',
+        redirectTo: 'auth/signin',
         pathMatch: 'full'
       },
       {
@@ -56,12 +56,54 @@ const routes: Routes = [
       {
         path: 'tache',
         loadComponent: () => import('./demo/pages/tache-stagiaire/tache-stagiaire.component').then(m => m.TacheStagiaireComponent)
+      },
+      {
+        path: 'stagiaires-tuteur',
+        loadComponent: () => import('./demo/pages/stagiaires-tuteur/stagiaires-tuteur.component').then(m => m.StagiairesTuteurComponent)
+      },
+      {
+        path: 'tuteur-taches-stagiaire',
+        loadComponent: () => import('./demo/pages/tuteur-taches-stagiaire/tuteur-taches-stagiaire.component').then(m => m.TuteurTachesStagiaireComponent)
+      },
+      {
+        path: 'chat',
+        loadComponent: () => import('./demo/pages/chat/chat.component').then(m => m.ChatComponent)
+      },
+      {
+        path: 'dash',
+        loadComponent: () => import('./demo/pages/stagiaire-dashboard/stagiaire-dashboard.component').then(m => m.StagiaireDashboardComponent)
+      },
+      {
+        path: 'chat/stagiaire',
+        loadComponent: () => import('./demo/pages/chat/stagiaire-chat/stagiaire-chat.component').then(m => m.StagiaireChatComponent)
+      },       {
+        path: 'evaluation',
+        children: [
+          {
+            path: 'dashboard',
+            loadComponent: () => import('./demo/pages/evaluation/evaluation-dashboard/evaluation-dashboard.component').then(m => m.EvaluationDashboardComponent)
+          },
+          {
+            path: 'form/:id',
+            loadComponent: () => import('./demo/pages/evaluation/evaluation-form/evaluation-form.component').then(m => m.EvaluationFormComponent)
+          },
+          {
+            path: 'historique/:id',
+            loadComponent: () => import('./demo/pages/evaluation/evaluation-historique/evaluation-historique.component').then(m => m.EvaluationHistoriqueComponent)
+          }
+        ]
+      },
+      {
+        path: 'admin-dashboard',
+        loadComponent: () => import('./demo/pages/admin-dashboard/admin-dashboard.component').then(m => m.AdminDashboardComponent)
+      },
+      {
+        path: 'tuteur/taches-stagiaire/:stagiaireId',
+        loadComponent: () => import('./demo/pages/tuteur-taches-stagiaire/tuteur-taches-stagiaire.component').then(m => m.TuteurTachesStagiaireComponent)
       }
     ]
   },
   { path: '**', redirectTo: 'auth/signin' }
-
-  
 ];
 
 @NgModule({

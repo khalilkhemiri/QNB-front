@@ -15,6 +15,7 @@ export default class AuthSigninComponent {
   username = '';
   password = '';
   errorMessage = '';
+  showPassword = false;
 
   constructor(private authService: AuthService, private router: Router) {}
 
@@ -24,7 +25,7 @@ export default class AuthSigninComponent {
         if (response.token) {
           // C'est bien le token
           this.authService.setToken(response.token);
-          this.router.navigate(['/dashboard']);
+          this.router.navigate(['/dash']);
 
         } else {
           // Cas où on aurait un message d'erreur renvoyé sous forme de texte
